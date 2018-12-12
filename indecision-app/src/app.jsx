@@ -7,12 +7,18 @@ console.log('Ayee it works!');
 // switch default file handling in VSCode to JavaScript react for this to work
 // because - typescript linters
 
-// var template = (
-//   <div>
-//     <h1> Indecison App </h1>
-//     <p>This is some info</p>
-//   </div>
-// );
+// Challenge code # 2
+const app = {
+  title: 'Indecision App',
+  subtitle: 'This is some info'
+};
+
+var template = (
+  <div>
+    <h1>{app.title}</h1>
+    <p>{app.subtitle}</p>
+  </div>
+);
 
 // challenge code # 1
 const me = {
@@ -22,8 +28,8 @@ const me = {
 };
 
 // use {} when rendering data from object
-// or json
-var template = (
+// or json, also known as JSX Expressions.
+var templateTwo = (
   <div>
     <h1>{me.name}</h1>
     <p>
@@ -36,4 +42,5 @@ var template = (
 );
 
 var appRoot = document.getElementById("app");
+// ReactDOM.render(templateTwo, appRoot);
 ReactDOM.render(template, appRoot);
