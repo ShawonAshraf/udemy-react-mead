@@ -35,9 +35,19 @@ const onFormSubmit = (e) => {
     console.log(option);
     console.log('option updated => re rendering');
   } else {
-    console.log('User typed nothing!');
+    console.log('options is empty');
   }
 };
+
+// clear the array
+const resetOptions = () => {
+  if (app.options.length > 0) {
+    app.options = [];
+    // log and render
+    console.log('options cleared');
+    renderOptionsChange();
+  }
+}
 
 // re render and update options array
 const renderOptionsChange = () => {
@@ -54,6 +64,7 @@ const renderOptionsChange = () => {
       <form onSubmit={onFormSubmit}>
         <input type="text" name="option"></input>
         <button>Add Option</button>
+        <button onClick={resetOptions}>Remove all</button>
       </form>
     </div>
   );
