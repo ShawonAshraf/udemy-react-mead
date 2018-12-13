@@ -12,33 +12,56 @@ const appRoot = document.getElementById("app");
 const app = {
   title: 'Indecision App',
   subtitle: 'This is some info',
-  options: ['one', 'two']
+  options: []
 };
 
 // form submit function
 const onFormSubmit = (e) => {
   // prevent the default event from taking place
   e.preventDefault();
-  alert('Form submitted');
+  // alert('Form submitted');
+
+  // get the value from the input field
+  const option = e.target.elements.option.value;
+  if (option) {
+    // push to array
+    app.options.push(option);
+    // clear the field
+    e.target.elements.option.value = '';
+
+    // render
+    renderOptionsChange();
+    // log
+    console.log(option);
+    console.log('option updated => re rendering');
+  } else {
+    console.log('User typed nothing!');
+  }
 };
 
-const template = (
-  <div>
-    <h1>{app.title}</h1>
-    {app.subtitle ? <p>{app.subtitle}</p> : ''}
-    <p>{app.options.length > 0 ? 'Here are your options' : 'You\'ve\ no options'}</p>
-    <ol>
-      <li>Item One</li>
-      <li>Item Two</li>
-    </ol>
-    <form onSubmit={onFormSubmit}>
-      <input type="text" name="option"></input>
-      <button>Add Option</button>
-    </form>
-  </div>
-);
-ReactDOM.render(template, appRoot);
+// re render and update options array
+const renderOptionsChange = () => {
+  const template = (
+    <div>
+      <h1>{app.title}</h1>
+      {app.subtitle ? <p>{app.subtitle}</p> : ''}
+      <p>{app.options.length > 0 ? 'Here are your options' : 'You\'ve\ no options'}</p>
+      <p>{app.options.length}</p>
+      <ol>
+        <li>Item One</li>
+        <li>Item Two</li>
+      </ol>
+      <form onSubmit={onFormSubmit}>
+        <input type="text" name="option"></input>
+        <button>Add Option</button>
+      </form>
+    </div>
+  );
 
+  ReactDOM.render(template, appRoot);
+};
+// call
+renderOptionsChange();
 
 // template 2
 const me = {
