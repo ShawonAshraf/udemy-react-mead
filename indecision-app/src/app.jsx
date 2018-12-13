@@ -5,22 +5,42 @@ console.log('Live re-compile turned on!');
 // switch default file handling in VSCode to JavaScript react for this to work
 // because - typescript linters
 
-// Challenge code # 2, 3
+// app root
+const appRoot = document.getElementById("app");
+
+// template 1
 const app = {
   title: 'Indecision App',
   subtitle: 'This is some info',
   options: ['one', 'two']
 };
 
-const template = (
-    <div>
-      <h1>{app.title}</h1>
-      {app.subtitle ? <p>{app.subtitle}</p> : ''}
-      <p>{app.options.length > 0 ? 'Here are your options' : 'You\'ve\ no options'}</p>
-    </div>
-);
+// form submit function
+const onFormSubmit = (e) => {
+  // prevent the default event from taking place
+  e.preventDefault();
+  alert('Form submitted');
+};
 
-// challenge code # 1
+const template = (
+  <div>
+    <h1>{app.title}</h1>
+    {app.subtitle ? <p>{app.subtitle}</p> : ''}
+    <p>{app.options.length > 0 ? 'Here are your options' : 'You\'ve\ no options'}</p>
+    <ol>
+      <li>Item One</li>
+      <li>Item Two</li>
+    </ol>
+    <form onSubmit={onFormSubmit}>
+      <input type="text" name="option"></input>
+      <button>Add Option</button>
+    </form>
+  </div>
+);
+ReactDOM.render(template, appRoot);
+
+
+// template 2
 const me = {
   name: "Shawon",
   city: "Dhaka"
@@ -30,9 +50,9 @@ const me = {
 function getLocation(location) {
   if (location) {
     return (
-        <p>
-          Location: {location}
-        </p>
+      <p>
+        Location: {location}
+      </p>
     );
   } else {
     return 'Unknown';
@@ -42,12 +62,47 @@ function getLocation(location) {
 // use {} when rendering data from object
 // or json, also known as JSX Expressions.
 const templateTwo = (
-    <div>
-      <h1>{me.name}</h1>
-      {getLocation(me.city)}
-    </div>
+  <div>
+    <h1>{me.name}</h1>
+    {getLocation(me.city)}
+  </div>
 );
-
-const appRoot = document.getElementById("app");
 // ReactDOM.render(templateTwo, appRoot);
-ReactDOM.render(template, appRoot);
+
+
+// template 3 starts here
+// events and attrs
+// let count = 0;
+
+// // functions for manipulating counter
+// const addOne = () => {
+//   count += 1;
+//   renderCounter();
+// };
+
+// const minusOne = () => {
+//   count -= 1;
+//   renderCounter();
+// };
+
+// const reset = () => {
+//   count = 0;
+//   renderCounter();
+// };
+
+// ReactDOM.render(templateThree, appRoot);
+
+// const renderCounter = () => {
+//   const templateThree = (
+//     <div>
+//       <h1>Count : {count}</h1>
+//       <button onClick={addOne}>+1</button>
+//       <button onClick={minusOne}>-1</button>
+//       <button onClick={reset}>Reset</button>
+//     </div>
+//   );
+
+//   ReactDOM.render(templateThree, appRoot);
+// };
+
+// renderCounter();
