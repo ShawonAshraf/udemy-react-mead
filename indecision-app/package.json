@@ -5,10 +5,12 @@
   "license": "MIT",
   "scripts": {
     "dev": "babel src/app.jsx --out-file=public/scripts/app.js",
-    "watch": "babel src/app.jsx --out-file=public/scripts/app.js --watch"
+    "watch": "babel src/app.jsx --out-file=public/scripts/app.js --watch",
+    "live": "live-server public/"
   },
   "dependencies": {
     "@babel/preset-react": "^7.0.0",
+    "live-server": "^1.2.1",
     "react": "^16.6.3"
   },
   "devDependencies": {
