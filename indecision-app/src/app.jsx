@@ -78,7 +78,7 @@ const renderOptionsChange = () => {
         }
       </ol>
       <button disabled={app.options.length === 0} onClick={onMakeDecision}>What should I do?</button>
-      <button onClick={resetOptions}>Remove all</button>
+      <button disabled={app.options.length === 0} onClick={resetOptions}>Remove all</button>
       <form onSubmit={onFormSubmit}>
         <input type="text" name="option"></input>
         <button>Add Option</button>
