@@ -32,7 +32,7 @@ const onFormSubmit = (e) => {
     // render
     renderOptionsChange();
     // log
-    console.log(option);
+    // console.log(option);
     console.log('option updated => re rendering');
   } else {
     console.log('options is empty');
@@ -42,12 +42,23 @@ const onFormSubmit = (e) => {
 // clear the array
 const resetOptions = () => {
   if (app.options.length > 0) {
-    app.options = [];
+    app.options.length = 0;
     // log and render
     console.log('options cleared');
     renderOptionsChange();
   }
 }
+
+// handle event for what should I do
+const onMakeDecision = () => {
+  const randomNum = Math.floor(Math.random() * app.options.length);
+  const option = app.options[randomNum];
+  alert(option);
+  // console.log(randomNum);
+};
+
+// an array
+// const numbers = [55, 200, 156];
 
 // re render and update options array
 const renderOptionsChange = () => {
@@ -57,14 +68,24 @@ const renderOptionsChange = () => {
       {app.subtitle ? <p>{app.subtitle}</p> : ''}
       <p>{app.options.length > 0 ? 'Here are your options' : 'You\'ve\ no options'}</p>
       <p>{app.options.length}</p>
+      {/* {
+        numbers.map((num) => {
+          return <p key={num}>Number : {num}</p>;
+        })
+      } */}
       <ol>
-        <li>Item One</li>
-        <li>Item Two</li>
+        {
+          // render app.options
+          app.options.map(
+            (option) => <li key={option}>{option}</li>
+          )
+        }
       </ol>
+      <button onClick={onMakeDecision}>What should I do?</button>
+      <button onClick={resetOptions}>Remove all</button>
       <form onSubmit={onFormSubmit}>
         <input type="text" name="option"></input>
         <button>Add Option</button>
-        <button onClick={resetOptions}>Remove all</button>
       </form>
     </div>
   );
