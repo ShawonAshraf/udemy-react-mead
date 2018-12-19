@@ -13,21 +13,6 @@ class Person {
   }
 }
 
-class Student extends Person {
-  constructor(name, age, major = 'Undecided') {
-    super(name, age);
-    this.major = major;
-  }
-
-  hasMajor() {
-    return !!this.major;
-  }
-
-  getDescription() {
-    return this.hasMajor() ? `${super.getDescription()} and majoring in ${this.major}` : super.getDescription();
-  }
-}
-
 class UndeadTraveller extends Person {
   constructor(name, age, homeLocation) {
     super(name, age);
