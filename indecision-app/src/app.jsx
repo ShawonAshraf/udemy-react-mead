@@ -67,62 +67,59 @@ class IndecisionApp extends React.Component {
   }
 }
 
-class Header extends React.Component {
-  render() {
-    const { title, subTitle } = this.props;
-    return (
-      <div>
-        <h1>{title}</h1>
-        <h2>{subTitle}</h2>
-      </div>
-    );
-  }
-}
+// header
+// functional
+const Header = (props) => {
+  const { title, subTitle } = props;
+  return (
+    <div>
+      <h1>{title}</h1>
+      <h2>{subTitle}</h2>
+    </div>
+  );
+};
 
 // actions
-class Action extends React.Component {
-  render() {
-    return (
-      <div>
-        <button
-          onClick={this.props.handlePick}
-          disabled={!this.props.hasOptions}>
-          What to do?
-        </button>
-      </div>
-    );
-  }
-}
+// converted to functional component
+const Action = (props) => {
+  return (
+    <div>
+      <button
+        onClick={props.handlePick}
+        disabled={!props.hasOptions}>
+        What to do?
+      </button>
+    </div>
+  );
+};
 
 
 // options class
 // contains all the options
-class Options extends React.Component {
-  render() {
-    const { options } = this.props;
-    return (
-      <div>
-        <button onClick={this.props.handler}>Remove All</button>
-        {
-          options.length > 0 && options.map((option) => {
-            return <Option key={option} optionText={option}></Option>;
-          })
-        }
-      </div>
-    );
-  }
-}
-// a single option
-class Option extends React.Component {
-  render() {
-    return (
-      <div>
-        {this.props.optionText}
-      </div>
-    );
-  }
-}
+// converted to functional component
+const Options = (props) => {
+  const { options } = props;
+  return (
+    <div>
+      <button onClick={props.handler}>Remove All</button>
+      {
+        options.length > 0 && options.map((option) => {
+          return <Option key={option} optionText={option}></Option>;
+        })
+      }
+    </div>
+  );
+};
 
+// a single option
+// converted to functional components
+const Option = (props) => {
+  return (
+    <div>
+      {props.optionText}
+    </div>
+  );
+};
 class AddOptions extends React.Component {
   // constructor
   constructor(props) {
@@ -160,7 +157,15 @@ class AddOptions extends React.Component {
   }
 }
 
-// visibility toggler
+// functional user component
+const User = (props) => {
+  return (
+    <div>
+      <p>Name: {props.name}</p>
+      <p>Age: {props.age}</p>
+    </div>
+  );
+};
 
 // render jsx
 const jsx = <IndecisionApp></IndecisionApp>;
