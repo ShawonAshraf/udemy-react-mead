@@ -4,10 +4,11 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "babel src/app.jsx --out-file=public/scripts/app.js",
-    "watch": "babel src/app.jsx --out-file=public/scripts/app.js --watch",
-    "live": "live-server public/",
-    "watch-build": "nodemon public/scripts/app.js"
+    "build": "webpack",
+    "dev": "webpack",
+    "serve": "live-server public/",
+    "lint-init": "eslint --init",
+    "lint": "eslint src/*.jsx"
   },
   "dependencies": {
     "live-server": "^1.2.1",
@@ -18,6 +19,11 @@
     "@babel/core": "^7.2.0",
     "@babel/preset-env": "^7.2.0",
     "@babel/preset-react": "^7.0.0",
-    "nodemon": "^1.18.9"
+    "eslint": "^5.11.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1",
+    "webpack": "^4.28.2"
   }
 }
