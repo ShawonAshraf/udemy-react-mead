@@ -23,7 +23,7 @@ class IndecisionApp extends React.Component {
 
     return (
       <div>
-        <Header ></Header>
+        <Header></Header>
         <Action
           hasOptions={options.length > 0}
           handlePick={this.handlerPick}
@@ -35,7 +35,7 @@ class IndecisionApp extends React.Component {
         <AddOptions
           handleAddOption={this.handleAddOption}
         ></AddOptions>
-      </div >
+      </div>
     );
   }
 
@@ -63,7 +63,7 @@ class IndecisionApp extends React.Component {
       this.setState((state) => {
         return {
           options: state.options.concat([option])
-        }
+        };
       });
     }
   }
@@ -77,16 +77,28 @@ class IndecisionApp extends React.Component {
     this.setState(() => {
       return {
         options: options
-      }
+      };
     });
   }
 
   // lifecycle functions
   componentDidMount() {
-    console.log('componentDidMount');
+    try {
+      const json = localStorage.getItem('options');
+      const options = JSON.parse(json);
+
+      if (options) {
+        this.setState(() => ({ options }));
+      }
+    } catch (e) {
+      // do nothing, let it silently fail
+    }
   }
-  componentDidUpdate() {
-    console.log('componentDidUpdate');
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.options.length !== this.state.length) {
+      const json = JSON.stringify(this.state.options);
+      localStorage.setItem('options', json);
+    }
   }
   componentWillUnmount() {
     console.log('unmounted');
@@ -133,6 +145,7 @@ const Options = (props) => {
   return (
     <div>
       <button onClick={props.handler}>Remove All</button>
+      {options.length === 0 && <p>Please add an option to get started!</p>}
       {
         options.length > 0 && options.map((option) => {
           return <Option key={option} optionText={option} handleDeleteOption={props.handleDeleteOption} />;
@@ -176,6 +189,8 @@ class AddOptions extends React.Component {
       this.setState(() => {
         return { error };
       });
+    } else {
+      e.target.elements.option.value = '';
     }
   }
   render() {
