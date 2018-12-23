@@ -73,7 +73,7 @@ class IndecisionApp extends React.Component {
     const options = this.state.options;
     const index = options.indexOf(optionToRemove);
     options.splice(index, 1);
-    
+
     this.setState(() => {
       return {
         options: options
@@ -81,6 +81,16 @@ class IndecisionApp extends React.Component {
     });
   }
 
+  // lifecycle functions
+  componentDidMount() {
+    console.log('componentDidMount');
+  }
+  componentDidUpdate() {
+    console.log('componentDidUpdate');
+  }
+  componentWillUnmount() {
+    console.log('unmounted');
+  }
 }
 
 // header
@@ -125,7 +135,7 @@ const Options = (props) => {
       <button onClick={props.handler}>Remove All</button>
       {
         options.length > 0 && options.map((option) => {
-          return <Option key={option} optionText={option} handleDeleteOption={props.handleDeleteOption}/>;
+          return <Option key={option} optionText={option} handleDeleteOption={props.handleDeleteOption} />;
         })
       }
     </div>
@@ -138,9 +148,9 @@ const Option = (props) => {
   return (
     <div>
       {props.optionText}
-      <button onClick={ (e) => {
+      <button onClick={(e) => {
         props.handleDeleteOption(props.optionText);
-      } }>
+      }}>
         Remove
       </button>
     </div>
