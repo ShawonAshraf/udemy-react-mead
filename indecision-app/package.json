@@ -4,10 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "babel src/app.jsx --out-file=public/scripts/app.js",
-    "watch": "babel src/app.jsx --out-file=public/scripts/app.js --watch",
-    "live": "live-server public/",
-    "watch-build": "nodemon public/scripts/app.js",
+    "build": "webpack",
+    "dev": "webpack",
+    "serve": "live-server public/",
     "lint-init": "eslint --init",
     "lint": "eslint src/*.jsx"
   },
@@ -25,6 +24,6 @@
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.11.1",
-    "nodemon": "^1.18.9"
+    "webpack": "^4.28.2"
   }
 }
