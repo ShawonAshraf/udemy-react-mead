@@ -71,7 +71,7 @@ class IndecisionApp extends React.Component {
 
   handleDeleteOption(optionToRemove) {
     // splicing is faster than filtering
-    const options = { this.state };
+    const options = this.state.options;
     const index = options.indexOf(optionToRemove);
     options.splice(index, 1);
 

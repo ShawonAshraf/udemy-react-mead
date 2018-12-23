@@ -1,3 +1,4 @@
 {
-  "liveServer.settings.multiRootWorkspaceName": "indecision-app"
+  "liveServer.settings.multiRootWorkspaceName": "indecision-app",
+  "eslint.enable": false
 }
