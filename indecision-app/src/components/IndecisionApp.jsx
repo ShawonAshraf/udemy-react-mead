@@ -13,7 +13,7 @@ export default class IndecisionApp extends React.Component {
 
     // define state
     this.state = {
-      options: ['Option 1', 'Option 2', 'Option 3'],
+      options: [],
     };
 
     // binding
