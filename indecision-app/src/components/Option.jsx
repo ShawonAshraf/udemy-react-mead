@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+
 // a single option
 // converted to functional components
 const Option = (props) => (
