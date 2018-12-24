@@ -16,5 +16,6 @@ module.exports = {
         extensions: ['.jsx ']
       }
     }]
-  }
+  },
+  devtool: 'cheap-module-eval-source-map'
 };
