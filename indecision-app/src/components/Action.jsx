@@ -1,3 +1,6 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+
 // actions
 // converted to functional component
 const Action = (props) => (

@@ -1,3 +1,8 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+import Option from './Option.jsx';
+
 // options class
 // contains all the options
 // converted to functional component
