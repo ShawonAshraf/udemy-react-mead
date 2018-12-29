@@ -1,10 +1,10 @@
 import React from 'react';
 
 // import components
-import AddOptions from './AddOptions.jsx';
-import Action from './Action.jsx';
-import Header from './Header.jsx';
-import Options from './Options.jsx';
+import AddOptions from './AddOptions';
+import Action from './Action';
+import Header from './Header';
+import Options from './Options';
 
 export default class IndecisionApp extends React.Component {
   // constructor

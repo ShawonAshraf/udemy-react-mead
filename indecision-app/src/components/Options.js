@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Option from './Option.jsx';
+import Option from './Option';
 
 // options class
 // contains all the options
