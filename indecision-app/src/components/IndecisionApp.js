@@ -7,21 +7,10 @@ import Header from './Header';
 import Options from './Options';
 
 export default class IndecisionApp extends React.Component {
-  // constructor
-  constructor(props) {
-    super(props);
-
-    // define state
-    this.state = {
-      options: [],
-    };
-
-    // binding
-    this.handleReset = this.handleReset.bind(this);
-    this.handlerPick = this.handlerPick.bind(this);
-    this.handleAddOption = this.handleAddOption.bind(this);
-    this.handleDeleteOption = this.handleDeleteOption.bind(this);
-  }
+  // class props
+  state = {
+    options: []
+  };
 
   render() {
     const title = 'Indecision';
@@ -50,20 +39,20 @@ export default class IndecisionApp extends React.Component {
     );
   }
 
-  // function
-  handleReset() {
+  // handlers
+  handleReset = () => {
     this.setState(() => ({
       options: []
     }));
-  }
+  };
 
-  handlerPick() {
+  handlerPick = () => {
     const randomNumber = Math.floor(Math.random() * this.state.options.length);
     const option = this.state.options[randomNumber];
     alert(option);
-  }
+  };
 
-  handleAddOption(option) {
+  handleAddOption = (option) => {
     if (!option) {
       return 'Option can\'t\ be empty';
     } if (this.state.options.includes(option)) {
@@ -75,9 +64,9 @@ export default class IndecisionApp extends React.Component {
         };
       });
     }
-  }
+  };
 
-  handleDeleteOption(optionToRemove) {
+  handleDeleteOption = (optionToRemove) => {
     // splicing is faster than filtering
     const options = this.state.options;
     const index = options.indexOf(optionToRemove);
@@ -86,7 +75,7 @@ export default class IndecisionApp extends React.Component {
     this.setState(() => ({
       options: options
     }));
-  }
+  };
 
   // lifecycle functions
   componentDidMount() {
