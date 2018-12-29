@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  entry: './src/app.jsx',
+  entry: './src/app.js',
   mode: 'development',
   output: {
     path: path.join(__dirname, 'public'),
@@ -9,12 +9,9 @@ module.exports = {
   },
   module: {
     rules: [{
-      test: /\.(jsx)$/,
+      test: /\.(js|jsx)$/,
       exclude: /node_modules/,
-      loader: 'babel-loader',
-      resolve: {
-        extensions: ['.jsx ']
-      }
+      loader: 'babel-loader'
     }]
   },
   devtool: 'cheap-module-eval-source-map',

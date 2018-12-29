@@ -40,6 +40,7 @@ export default class IndecisionApp extends React.Component {
           options={options}
           handler={this.handleReset}
           handleDeleteOption={this.handleDeleteOption}
+          hasOptions={options.length > 0}
         >
         </Options>
         <AddOptions
