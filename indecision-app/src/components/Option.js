@@ -3,8 +3,8 @@ import React from 'react';
 // a single option
 // converted to functional components
 const Option = (props) => (
-  <div>
-    {props.optionText}
+  <div className={"option"}>
+    <p className={"option__text"}>{props.count}. {props.optionText}</p>
     <button className={"button button__link"} onClick={(e) => {
       props.handleDeleteOption(props.optionText);
     }}>
