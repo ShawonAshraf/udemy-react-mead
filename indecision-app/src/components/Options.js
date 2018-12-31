@@ -9,8 +9,15 @@ const Options = (props) => {
   const { options } = props;
   return (
     <div>
-      <button className={"button button__link"} onClick={props.handler} disabled={!props.hasOptions}>Remove All</button>
-      {options.length === 0 && <p>Please add an option to get started!</p>}
+      <div className={"widget-header"}>
+        <h3 className={"widget-header__title"}>Your Options</h3>
+        <button
+          className={"button button__link"}
+          onClick={props.handler}
+          disabled={!props.hasOptions}
+        >Remove All</button>
+      </div>
+      {options.length === 0 && <p className={"widget__message"}>Please add an option to get started!</p>}
       {
         options.length > 0 && options.map((option) => <Option key={option} optionText={option} handleDeleteOption={props.handleDeleteOption} />)
       }
