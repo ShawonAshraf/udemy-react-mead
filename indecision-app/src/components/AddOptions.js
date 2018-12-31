@@ -28,7 +28,8 @@ export default class AddOptions extends React.Component {
           <input
             className={"add-options-form__input"}
             type="text"
-            name="option" />
+            name="option"
+          />
           <button className={"button"}>Add!</button>
         </form>
       </div>
