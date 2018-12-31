@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "live-server": "^1.2.1",
+    "normalize.css": "^8.0.1",
     "react": "^16.6.3",
     "react-dom": "^16.7.0",
     "react-modal": "^3.8.1"
