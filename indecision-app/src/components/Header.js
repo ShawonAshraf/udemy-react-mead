@@ -5,15 +5,15 @@ import React from 'react';
 const Header = (props) => {
   const { title, subTitle } = props;
   return (
-    <div>
-      <h1>{title}</h1>
-      <h2>{subTitle}</h2>
+    <div className={"header"}>
+      <h1 className={"header__title"}>{title}</h1>
+      <h2 className={"header__subtitle"}>{subTitle}</h2>
     </div>
   );
 };
 // default props
 Header.defaultProps = {
-  title: 'Indecision App',
+  title: 'Indecision',
   subTitle: 'Put your life in the hands of a computer',
 };
 
