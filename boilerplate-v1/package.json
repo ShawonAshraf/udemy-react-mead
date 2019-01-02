@@ -1,5 +1,5 @@
 {
-  "name": "indecision-app",
+  "name": "boilerplate",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -7,9 +7,7 @@
     "build": "webpack --config webpack.config.js",
     "dev": "webpack --config webpack.config.js --watch",
     "dev-server": "webpack-dev-server",
-    "serve": "live-server public/",
-    "lint-init": "eslint --init",
-    "lint": "eslint src/*.jsx"
+    "serve": "live-server public/"
   },
   "dependencies": {
     "live-server": "^1.2.1",
