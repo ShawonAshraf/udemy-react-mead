@@ -51,11 +51,11 @@ const routes = (
   <BrowserRouter>
     <div>
       <Switch>
-        <Route exact={true} path="/" component={ExpenseDashBoard}/>
-        <Route exact={true} path="/create" component={AddExpensePage}/>
-        <Route exact={true} path="/edit" component={EditExpensePage}/>
-        <Route exact={true} path="/help" component={HelpPage}/>
-        <Route component={NotFoundPage}/>
+        <Route exact={true} path="/" component={ExpenseDashBoard} />
+        <Route exact={true} path="/create" component={AddExpensePage} />
+        <Route exact={true} path="/edit" component={EditExpensePage} />
+        <Route exact={true} path="/help" component={HelpPage} />
+        <Route component={NotFoundPage} />
       </Switch>
     </div>
   </BrowserRouter>
