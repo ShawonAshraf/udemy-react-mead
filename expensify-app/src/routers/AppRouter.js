@@ -1,15 +1,14 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Switch, Link, NavLink } from 'react-router-dom';
 
 
 // routes
-import Header from './Header';
-import ExpenseDashBoard from './ExpenseDashBoard';
-import AddExpensePage from './AddExpensePage';
-import EditExpensePage from './EditExpensePage';
-import HelpPage from './HelpPage';
-import NotFoundPage from './NotFoundPage';
+import Header from '../components/Header';
+import ExpenseDashBoard from '../components/ExpenseDashBoard';
+import AddExpensePage from '../components/AddExpensePage';
+import EditExpensePage from '../components/EditExpensePage';
+import HelpPage from '../components/HelpPage';
+import NotFoundPage from '../components/NotFoundPage';
 
 
 
