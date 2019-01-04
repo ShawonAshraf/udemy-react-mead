@@ -7,9 +7,13 @@ const store = createStore((state = { count: 0 }, action) => {
       return {
         count: state.count + action.incrementBy
       };
-    case 'DECREMENT':
+    case 'RESET':
       return {
-        count: state.count - 1
+        count: 0
+      };
+    case 'SET':
+      return {
+        count: action.newValue
       };
     default:
       return state;
@@ -24,5 +28,27 @@ const incrementCount = ({ incrementBy = 1 } = {}) => {
   };
 };
 
-store.dispatch(incrementCount());
+const resetCount = () => {
+  return {
+    type: 'RESET'
+  };
+};
+
+const setCount = ({ newValue = 1 } = {}) => {
+  return {
+    type: 'SET',
+    newValue
+  };
+};
+
+
+// test out
+
+store.dispatch(incrementCount({ incrementBy: 10 }));
+console.log(store.getState());
+
+store.dispatch(resetCount());
+console.log(store.getState());
+
+store.dispatch(setCount({ newValue: 6}));
 console.log(store.getState());
