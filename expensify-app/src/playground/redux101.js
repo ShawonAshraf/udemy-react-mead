@@ -1,4 +1,4 @@
-import { createStore} from "redux/es/redux";
+import { createStore} from 'redux';
 
 
 const store = createStore((state = { count: 0 }, action) => {
