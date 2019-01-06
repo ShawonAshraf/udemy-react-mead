@@ -11,7 +11,7 @@ import HelpPage from '../components/HelpPage';
 import NotFoundPage from '../components/NotFoundPage';
 
 
-const AppRouter = (
+const AppRouter = () => (
   <BrowserRouter>
     <div>
       <Header/>
