@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Provider} from 'react-redux';
 
 import AppRouter from './routers/AppRouter';
 // redux
@@ -22,10 +23,14 @@ store.dispatch(setTextFilter({text: 'bill'}));
 const storeState = store.getState();
 const visibleExpenses = getVisibleExpenses(storeState.expenses, storeState.filters);
 
-console.log(visibleExpenses);
+// console.log(visibleExpenses);
 // console.log(storeState);
 
-
+const jsx = (
+  <Provider store={store}>
+    <AppRouter/>
+  </Provider>
+);
 
 // render the router
-ReactDOM.render(AppRouter, document.getElementById("app"));
+ReactDOM.render(jsx, document.getElementById("app"));
