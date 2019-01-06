@@ -1,7 +1,7 @@
 // filter actions
 
 // set filter text
-export const setTextFilter = ({ text = ''} = {}) => {
+export const setTextFilter = (text = '') => {
   return {
     type: 'SET_FILTER_TEXT',
     text
