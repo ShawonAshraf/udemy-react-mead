@@ -1,9 +1,11 @@
 import React from "react";
 
+import ExpenseList from './ExpenseList';
+
 const ExpenseDashBoard = () => {
   return (
     <div>
-      This is my dashboard component
+      <ExpenseList/>
     </div>
   );
 };
