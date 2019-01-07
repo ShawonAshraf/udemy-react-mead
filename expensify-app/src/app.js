@@ -17,20 +17,14 @@ import './styles/styles.scss';
 const store = configureStore();
 
 store.dispatch(addExpense({description: 'Water Bill', amount: 4500}));
-store.dispatch(addExpense({description: 'Gas Bill', amount: 2356}));
+store.dispatch(addExpense({description: 'Gas Bill', createdAt: 1000}));
+store.dispatch(addExpense({description: 'Rent', amount: 207543}));
 
-// store.dispatch(sortByAmount());
-store.dispatch(setTextFilter('Gas'));
 
-// filter text to change after 3 seconds
-setTimeout(() => {
-  store.dispatch(setTextFilter('bill'));
-}, 3000);
+const storeState = store.getState();
+const visibleExpenses = getVisibleExpenses(storeState.expenses, storeState.filters);
 
-// const storeState = store.getState();
-// const visibleExpenses = getVisibleExpenses(storeState.expenses, storeState.filters);
-
-// console.log(visibleExpenses);
+console.log(visibleExpenses);
 // console.log(storeState);
 
 const jsx = (
