@@ -20,10 +20,14 @@ store.dispatch(addExpense({description: 'Water Bill', amount: 4500}));
 store.dispatch(addExpense({description: 'Gas Bill', amount: 2356}));
 
 // store.dispatch(sortByAmount());
-// store.dispatch(setTextFilter('Gas'));
+store.dispatch(setTextFilter('Gas'));
 
+// filter text to change after 3 seconds
+setTimeout(() => {
+  store.dispatch(setTextFilter('bill'));
+}, 3000);
 
-const storeState = store.getState();
+// const storeState = store.getState();
 // const visibleExpenses = getVisibleExpenses(storeState.expenses, storeState.filters);
 
 // console.log(visibleExpenses);
