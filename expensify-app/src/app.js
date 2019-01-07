@@ -1,64 +1,39 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import {Provider} from 'react-redux';
+
+import AppRouter from './routers/AppRouter';
+// redux
+import configureStore from './store/configure-store';
+import {addExpense} from './actions/expenses';
+import {setTextFilter, sortByAmount, sortByDate} from './actions/filters';
+import getVisibleExpenses from './selectors/expenses';
 
 // css reset using normalize
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 
-const ExpenseDashBoard = () => {
-  return (
-    <div>
-      This is my dashboard component
-    </div>
-  );
-};
 
-const AddExpensePage = () => {
-  return (
-    <div>
-      This is my add expense component
-    </div>
-  );
-};
+const store = configureStore();
 
-const EditExpensePage = () => {
-  return (
-    <div>
-      This is from edit expense page component
-    </div>
-  );
-};
+store.dispatch(addExpense({description: 'Water Bill', amount: 4500}));
+store.dispatch(addExpense({description: 'Gas Bill', amount: 2356}));
 
-const HelpPage = () => {
-  return (
-    <div>
-      This is from help page
-    </div>
-  );
-};
+// store.dispatch(sortByAmount());
+// store.dispatch(setTextFilter('Gas'));
 
-const NotFoundPage = () => {
-  return (
-    <div>
-      <h1>404!</h1>
-    </div>
-  );
-};
 
-// routes
-const routes = (
-  <BrowserRouter>
-    <div>
-      <Switch>
-        <Route exact={true} path="/" component={ExpenseDashBoard} />
-        <Route exact={true} path="/create" component={AddExpensePage} />
-        <Route exact={true} path="/edit" component={EditExpensePage} />
-        <Route exact={true} path="/help" component={HelpPage} />
-        <Route component={NotFoundPage} />
-      </Switch>
-    </div>
-  </BrowserRouter>
+const storeState = store.getState();
+// const visibleExpenses = getVisibleExpenses(storeState.expenses, storeState.filters);
+
+// console.log(visibleExpenses);
+// console.log(storeState);
+
+const jsx = (
+  <Provider store={store}>
+    <AppRouter/>
+  </Provider>
 );
 
-ReactDOM.render(routes, document.getElementById("app"));
+// render the router
+ReactDOM.render(jsx, document.getElementById("app"));
