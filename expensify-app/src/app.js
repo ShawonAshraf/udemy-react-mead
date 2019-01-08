@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Provider} from 'react-redux';
+import { Provider } from 'react-redux';
 
 import AppRouter from './routers/AppRouter';
 // redux
 import configureStore from './store/configure-store';
-import {addExpense} from './actions/expenses';
-import {setTextFilter, sortByAmount, sortByDate} from './actions/filters';
+import { addExpense } from './actions/expenses';
+import { setTextFilter, sortByAmount, sortByDate } from './actions/filters';
 import getVisibleExpenses from './selectors/expenses';
 
 // css reset using normalize
@@ -16,9 +16,9 @@ import './styles/styles.scss';
 
 const store = configureStore();
 
-store.dispatch(addExpense({description: 'Water Bill', amount: 4500}));
-store.dispatch(addExpense({description: 'Gas Bill', createdAt: 1000}));
-store.dispatch(addExpense({description: 'Rent', amount: 207543}));
+store.dispatch(addExpense({ description: 'Water Bill', amount: 4500 }));
+store.dispatch(addExpense({ description: 'Gas Bill', createdAt: 1000 }));
+store.dispatch(addExpense({ description: 'Rent', amount: 207543 }));
 
 
 const storeState = store.getState();
@@ -29,7 +29,7 @@ console.log(visibleExpenses);
 
 const jsx = (
   <Provider store={store}>
-    <AppRouter/>
+    <AppRouter />
   </Provider>
 );
 
