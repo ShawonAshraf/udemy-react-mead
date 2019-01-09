@@ -8,7 +8,8 @@
     "dev": "webpack --config webpack.config.js --watch",
     "dev-server": "webpack-dev-server",
     "serve": "live-server public/",
-    "test": "jest"
+    "test": "jest",
+    "test-watch": "jest --watch"
   },
   "dependencies": {
     "live-server": "^1.2.1",
@@ -31,10 +32,14 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.2.0",
     "@babel/preset-env": "^7.2.0",
     "@babel/preset-react": "^7.0.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.4",
+    "babel-polyfill": "^6.26.0",
     "css-loader": "^2.1.0",
     "jest": "^23.6.0",
     "node-sass": "^4.11.0",
+    "regenerator-runtime": "^0.13.1",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "webpack": "^4.28.2",

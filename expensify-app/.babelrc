@@ -1,16 +1,11 @@
-module.exports = function () {
-  const presets = [
+{
+  "presets": [
     "@babel/env",
     "@babel/preset-react"
-  ];
+  ],
 
-  const plugins = [
+  "plugins": [
     "@babel/plugin-proposal-class-properties",
     "@babel/plugin-proposal-object-rest-spread"
-  ];
-
-  return {
-    presets,
-    plugins
-  };
+  ]
 }
