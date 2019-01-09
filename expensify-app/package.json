@@ -7,7 +7,8 @@
     "build": "webpack --config webpack.config.js",
     "dev": "webpack --config webpack.config.js --watch",
     "dev-server": "webpack-dev-server",
-    "serve": "live-server public/"
+    "serve": "live-server public/",
+    "test": "jest"
   },
   "dependencies": {
     "live-server": "^1.2.1",
