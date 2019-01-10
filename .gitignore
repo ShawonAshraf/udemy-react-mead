@@ -179,3 +179,5 @@ modules.xml
 
 indecision-app/public/scripts/app\.js
 indecision-app/public/bundle\.js
+
+expensify-app/src/tests/components/__snapshots__/
