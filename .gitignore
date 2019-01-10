@@ -183,3 +183,5 @@ indecision-app/public/bundle\.js
 expensify-app/src/tests/components/__snapshots__/
 
 expensify-app/public/scripts/bundle\.js
+
+expensify-app/public/scripts/bundle\.js\.map
