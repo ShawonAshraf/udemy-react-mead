@@ -1,52 +1,15 @@
 import moment from 'moment';
 
+// test data
+import expenses from '../fixtures/expenses';
+import filters from '../fixtures/filters';
+
+// selector
 import selector from '../../selectors/expenses';
 
-// a little helper method
-// since js array.reverse is destructive and changes the real array
-// https://stackoverflow.com/questions/14450201/non-destructively-reversing-an-array-in-javascript
-const reverseArray = (array) => {
-  return array.reduce((ary, ele) => {
-    ary.unshift(ele);
-    return ary
-  }, []);
-};
+// utility
+import reverseArray from '../utils/reverse-array';
 
-// test for this function
-// test('should reverse an array', () => {
-//   const ar = [1, 2, 3];
-//   const r = reverseArray(ar);
-//   expect(r).toEqual([3, 2, 1]);
-// });
-
-// test data
-const expenses = [
-  {
-    id: '1',
-    description: 'Data01',
-    amount: 1,
-    createdAt: moment(0).add(1, 'days').valueOf()
-  },
-  {
-    id: '2',
-    description: 'Data02',
-    amount: 2,
-    createdAt: moment(0).add(2, 'days').valueOf()
-  },
-  {
-    id: '3',
-    description: 'Data03',
-    amount: 3,
-    createdAt: moment(0).add(3, 'days').valueOf()
-  }
-];
-
-const filters = {
-  text: '',
-  sortBy: 'date',
-  startDate: undefined,
-  endDate: undefined
-};
 
 test('should filter by the text value', () => {
   const filter = {
