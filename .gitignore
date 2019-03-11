@@ -193,4 +193,6 @@ expensify-app/public/styles\.css\.map
 expensify-app/public/styles/
 
 # ignore firebase
-firebase/
+firebase/config.js
+
+expensify-app/src/firebase/config\.js

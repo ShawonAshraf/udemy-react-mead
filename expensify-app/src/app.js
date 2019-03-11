@@ -13,6 +13,8 @@ import getVisibleExpenses from './selectors/expenses';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 
+// firebase
+import './firebase/firebase';
 
 const store = configureStore();
 
@@ -24,7 +26,7 @@ store.dispatch(addExpense({ description: 'Rent', amount: 207543 }));
 const storeState = store.getState();
 const visibleExpenses = getVisibleExpenses(storeState.expenses, storeState.filters);
 
-console.log(visibleExpenses);
+// console.log(visibleExpenses);
 // console.log(storeState);
 
 const jsx = (
