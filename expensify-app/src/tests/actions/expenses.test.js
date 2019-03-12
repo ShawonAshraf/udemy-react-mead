@@ -29,7 +29,8 @@ test('should setup addExpense with provided values', () => {
     description: 'Test Expense',
     note: '',
     amount: 123,
-    createdAt: 0
+    createdAt: 0,
+    id: 'hallelujah123'
   };
 
   const ret = addExpense(expense);
@@ -43,19 +44,11 @@ test('should setup addExpense with provided values', () => {
 });
 
 test('should setup addExpense with default values', () => {
-  const expense = {
-    description: '',
-    note: '',
-    amount: 0,
-    createdAt: 0
-  };
+  const expense = undefined;
 
   const ret = addExpense();
   expect(ret).toEqual({
     type: 'ADD_EXPENSE',
-    expense: {
-      ...expense,
-      id: expect.any(String)
-    }
+    expense: undefined
   });
 });
