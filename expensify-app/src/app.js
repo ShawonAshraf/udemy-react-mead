@@ -5,9 +5,7 @@ import { Provider } from 'react-redux';
 import AppRouter from './routers/AppRouter';
 // redux
 import configureStore from './store/configure-store';
-import { addExpense } from './actions/expenses';
-import { setTextFilter, sortByAmount, sortByDate } from './actions/filters';
-import getVisibleExpenses from './selectors/expenses';
+import { startSetExpenses } from './actions/expenses';
 
 // css reset using normalize
 import 'normalize.css/normalize.css';
@@ -18,22 +16,16 @@ import './firebase/firebase';
 
 const store = configureStore();
 
-// store.dispatch(addExpense({ description: 'Water Bill', amount: 4500 }));
-// store.dispatch(addExpense({ description: 'Gas Bill', createdAt: 1000 }));
-// store.dispatch(addExpense({ description: 'Rent', amount: 207543 }));
-
-
-const storeState = store.getState();
-const visibleExpenses = getVisibleExpenses(storeState.expenses, storeState.filters);
-
-// console.log(visibleExpenses);
-// console.log(storeState);
-
 const jsx = (
   <Provider store={store}>
     <AppRouter />
   </Provider>
 );
 
-// render the router
-ReactDOM.render(jsx, document.getElementById("app"));
+
+ReactDOM.render(<p>Loading .....</p>, document.getElementById("app"));
+store.dispatch(startSetExpenses()).then(() => {
+  ReactDOM.render(jsx, document.getElementById("app"));
+});
+
+
