@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import ExpenseForm from './ExpenseForm';
-import { editExpense, startRemoveExpense } from '../actions/expenses';
+import { startEditExpense, startRemoveExpense } from '../actions/expenses';
 
 const EditExpensePage = (props) => {
   return (
@@ -12,7 +12,7 @@ const EditExpensePage = (props) => {
         expense={props.expense}
         onSubmit={(expense) => {
           // dispatch action to store
-          props.dispatch(editExpense(props.expense.id, expense));
+          props.dispatch(startEditExpense(props.expense.id, expense));
           // redirect to dashboard
           props.history.push('/');
           // console.log('update dispatched');
